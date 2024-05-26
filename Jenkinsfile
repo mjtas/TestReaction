@@ -20,27 +20,20 @@ pipeline {
 	stages {
 		stage ('Build') {
 			steps { 
-				sh 'mvn -s settings.xml  -DskipTests install'
-
+				sh 'mvn clean install'
 			}
 			post {
 				success {
 					echo "Now Archiving."
-					archiveArtifacts artifacts : '**/*.war'
+					archiveArtifacts artifacts : '**  *//* *//*  *//*.war'
 				}
-		       }  
-
+		       }
 		}
-		/* stage ('Test') {
+		stage ('Test') {
 			steps {
-				sh 'mvn -s settings.xml test'
+				sh 'mvn test'
 			}
 		}
-		stage ('Checkstyle Analysis') {
-			steps {
-				sh 'mvn -s settings.xml checkstyle:checkstyle'
-			}
-		} */
 		stage ('Sonar Analysis') {
 			environment  {
 				scannerHome =tool "${SONARSCANNER}"
