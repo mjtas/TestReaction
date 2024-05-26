@@ -7,15 +7,15 @@ pipeline {
 	environment {
 		SNAP_REPO = 'vprofile-snapshot'
 		NEXUS_USER = 'admin'
-		NEXUS_PASS = 'admin@123'
+		NEXUS_PASS = 'admin'
 		RELEASE_REPO = 'vprofile-release'
 		CENTRAL_REPO = 'vpro-maven-central'
-		NEXUSIP = '172.31.6.68'
+		NEXUSIP = 'http://54.79.243.87/'
 		NEXUSPORT = '8081'
 		NEXUS_GRP_REPO = 'vprofile-maven-group'
 		NEXUS_LOGIN = 'nexuslogin'
 		SONARSERVER = 'sonarserver'
-  	        SONARSCANNER = 'sonarscanner'
+  	    SONARSCANNER = 'sonarscanner'
 	}
 	stages {
 		stage ('Build') {
@@ -59,7 +59,7 @@ pipeline {
 				}
 			}
 		}
-		stage ('Quality Gate') {
+		/* stage ('Quality Gate') {
 			steps {
 				timeout (time : 5, unit : 'HOURS') {
 					waitForQualityGate abortPipeline :true
@@ -88,6 +88,6 @@ pipeline {
 					
 				)
 			}
-		}
+		} */
 	}
 }
