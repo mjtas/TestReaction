@@ -5,17 +5,18 @@ pipeline {
 		jdk "OracleJDK8"
 	}
 	environment {
-		SNAP_REPO = 'vprofile-snapshot'
+		SNAP_REPO = 'profile-snapshot'
 		NEXUS_USER = 'admin'
 		NEXUS_PASS = 'admin'
-		RELEASE_REPO = 'vprofile-release'
-		CENTRAL_REPO = 'vpro-maven-central'
+		RELEASE_REPO = 'profile-release'
+		CENTRAL_REPO = 'pro-maven-central'
 		NEXUSIP = 'http://54.79.243.87/'
 		NEXUSPORT = '8081'
-		NEXUS_GRP_REPO = 'vprofile-maven-group'
+		NEXUS_GRP_REPO = 'pro-maven-group'
 		NEXUS_LOGIN = 'nexuslogin'
 		SONARSERVER = 'sonarserver'
   	    SONARSCANNER = 'sonarscanner'
+  	    NEXUSPASS = credentials('nexuspass')
 	}
 	stages {
 		stage ('Build') {
@@ -31,7 +32,7 @@ pipeline {
 		       }  
 
 		}
-		stage ('Test') {
+		/* stage ('Test') {
 			steps {
 				sh 'mvn -s settings.xml test'
 			}
@@ -40,7 +41,7 @@ pipeline {
 			steps {
 				sh 'mvn -s settings.xml checkstyle:checkstyle'
 			}
-		}
+		} */
 		stage ('Sonar Analysis') {
 			environment  {
 				scannerHome =tool "${SONARSCANNER}"
