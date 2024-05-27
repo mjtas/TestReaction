@@ -25,7 +25,7 @@ pipeline {
 			post {
 				success {
 					echo "Now Archiving."
-					archiveArtifacts artifacts: '**/target/*.war', allowEmptyArchive: true
+					archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
 				}
 		    }
 		}
@@ -71,10 +71,10 @@ pipeline {
 					credentialsId : "${NEXUS_LOGIN}",
 					artifacts : [
 						[
-							artifactId : 'vproapp',
+							artifactId : 'testReactionApp',
 							classifier : '',
-							file : 'target/vprofile-v2.war',
-							type : 'war'
+							file : 'target/vprofile-v2.jar',
+							type : 'jar'
 							
 						]
 					]
