@@ -2,7 +2,7 @@ pipeline {
 	agent any
 	tools {
 		maven "MAVEN_HOME"
-		jdk "Java_Home"
+		jdk "OracleJDK8"
 	}
 	environment {
 		SNAP_REPO = 'profile-snapshot'
@@ -41,8 +41,8 @@ pipeline {
 			steps {
 				withSonarQubeEnv("${SONARSERVER}")
 				{
-				sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=vprofile \
-                   		-Dsonar.projectName=vprofile-repo \
+				sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=profile \
+                   		-Dsonar.projectName=profile-repo \
                    		-Dsonar.projectVersion=1.0 \
                    		-Dsonar.sources=src/ \
                    		-Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/ \
