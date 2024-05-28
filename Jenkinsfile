@@ -5,14 +5,14 @@ pipeline {
 		jdk "Java_Home"
 	}
 	environment {
-		SNAP_REPO = 'profile-snapshot'
+		SNAP_REPO = 'testreaction-snapshot'
 		NEXUS_USER = 'admin'
 		NEXUS_PASS = 'admin'
-		RELEASE_REPO = 'profile-release'
-		CENTRAL_REPO = 'pro-maven-central'
+		RELEASE_REPO = 'testreaction-release'
+		CENTRAL_REPO = 'testreaction-maven-central'
 		NEXUSIP = 'http://54.79.243.87/'
 		NEXUSPORT = '8081'
-		NEXUS_GRP_REPO = 'pro-maven-group'
+		NEXUS_GRP_REPO = 'testreaction-maven-group'
 		NEXUS_LOGIN = 'nexuslogin'
 		SONARSERVER = 'sonarserver'
   	    SONARSCANNER = 'sonarscanner'
@@ -41,14 +41,10 @@ pipeline {
 			steps {
 				withSonarQubeEnv("${SONARSERVER}")
 				{
-				sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=profile \
-                   		-Dsonar.projectName=profile-repo \
+				sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=testreaction \
+                   		-Dsonar.projectName=testreaction-repo \
                    		-Dsonar.projectVersion=1.0 \
                    		-Dsonar.sources=src/ \
-                   		-Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/ \
-                   		-Dsonar.junit.reportsPath=target/surefire-reports/ \
-                   		-Dsonar.jacoco.reportsPath=target/jacoco.exec \
-                   		-Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml''' 
 				}
 			}
 		}
