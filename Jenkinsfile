@@ -41,10 +41,10 @@ pipeline {
 			steps {
 				withSonarQubeEnv("${SONARSERVER}")
 				{
-				sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=testreaction \
+				sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=testreaction \
                    		-Dsonar.projectName=testreaction-repo \
                    		-Dsonar.projectVersion=1.0 \
-                   		-Dsonar.sources=src/ \''''
+                   		-Dsonar.sources=src/ "
 				}
 			}
 		}
