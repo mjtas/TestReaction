@@ -67,9 +67,9 @@ pipeline {
 					credentialsId : "${NEXUS_LOGIN}",
 					artifacts : [
 						[
-							artifactId : 'testReactionApp',
+							artifactId : 'TestReaction',
 							classifier : '',
-							file : 'target/TestReaction-1.0-SNAPSHOT.jar',
+							file : 'TestReaction' + version + '.jar',
 							type : 'jar'
 							
 						]
