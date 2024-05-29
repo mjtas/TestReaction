@@ -69,7 +69,7 @@ pipeline {
 						[
 							artifactId : 'TestReaction',
 							classifier : '',
-							file : 'TestReaction' + version + '.jar',
+							file : 'TestReaction' + "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}" + '.jar',
 							type : 'jar'
 							
 						]
