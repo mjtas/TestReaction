@@ -10,7 +10,7 @@ pipeline {
 		NEXUS_PASS = 'admin'
 		RELEASE_REPO = 'testreaction-release'
 		CENTRAL_REPO = 'testreaction-maven-central'
-		NEXUSIP = '54.79.243.87/'
+		NEXUSIP = '54.79.243.87'
 		NEXUSPORT = '8081'
 		NEXUS_GRP_REPO = 'testreaction-maven-group'
 		NEXUS_LOGIN = 'nexuslogin'
