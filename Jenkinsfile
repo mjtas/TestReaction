@@ -69,7 +69,7 @@ pipeline {
 						[
 							artifactId : 'testReactionApp',
 							classifier : '',
-							file : 'target/testReaction.jar',
+							file : 'target/TestReaction-1.0-SNAPSHOT.jar',
 							type : 'jar'
 							
 						]
