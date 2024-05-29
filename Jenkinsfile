@@ -55,7 +55,7 @@ pipeline {
 				}
 			}
 		}
-		/* stage ('Upload Artifact') {
+		stage ('Upload Artifact') {
 			steps { 
 				nexusArtifactUploader (
 					nexusVersion : 'nexus3',
@@ -69,7 +69,7 @@ pipeline {
 						[
 							artifactId : 'testReactionApp',
 							classifier : '',
-							file : 'target/vprofile-v2.jar',
+							file : 'target/testReaction.jar',
 							type : 'jar'
 							
 						]
@@ -77,6 +77,6 @@ pipeline {
 					
 				)
 			}
-		} */
+		}
 	}
 }
